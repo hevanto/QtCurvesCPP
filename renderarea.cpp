@@ -71,5 +71,28 @@ void RenderArea::paintEvent(QPaintEvent *event)
 
     // Drawing area
     painter.drawRect(this->rect());
-    painter.drawLine(this->rect().topLeft(), this->rect().bottomRight());
+
+    QPoint center = this->rect().center();
+    int stepCount = 256;
+    float scale = 40;
+    float intervalLength = M_PI * 2;
+    float step = intervalLength / stepCount;
+    for (float t = 0; t < intervalLength; t += step) {
+        QPointF point = computeAsteroid(t);
+
+        QPoint pixel;
+        pixel.setX(point.x() * scale + center.x());
+        pixel.setY(point.y() * scale + center.y());
+
+        painter.drawPoint(pixel);
+    }
+}
+
+QPointF RenderArea::computeAsteroid(float t)
+{
+    float cosT = cos(t);
+    float sinT = sin(t);
+    float x = 2 * cosT * cosT * cosT;
+    float y = 2 * sinT * sinT * sinT;
+    return QPointF(x, y);
 }

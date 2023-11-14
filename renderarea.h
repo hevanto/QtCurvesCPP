@@ -40,6 +40,9 @@ protected:
     void paintEvent(QPaintEvent *event);
 
 private:
+    QPointF computeAsteroid(float t);
+
+private:
     QColor mBackgroundColor;
     QColor mShapeColor;
     ShapeType mShape;
