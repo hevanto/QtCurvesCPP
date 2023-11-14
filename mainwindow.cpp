@@ -36,7 +36,6 @@ void MainWindow::onBtnHuygensClicked()
     this->ui->renderArea->setShape(RenderArea::HuygensCycloid);
 }
 
-
 void MainWindow::onBtnHypoClicked()
 {
     this->ui->renderArea->setShape(RenderArea::HypoCycloid);
