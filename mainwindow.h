@@ -17,12 +17,10 @@ public:
 
 private slots:
     void onBtnAstroidClicked();
-
     void onBtnCycloidClicked();
-
     void onBtnHuygensClicked();
-
     void onBtnHypoClicked();
+    void onBtnLineClicked();
 
 private:
     Ui::MainWindow *ui;

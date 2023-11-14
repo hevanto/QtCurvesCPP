@@ -12,7 +12,7 @@ public:
         Cycloid,
         HuygensCycloid,
         HypoCycloid,
-        FutureCurve
+        Line
     };
 
 
@@ -48,7 +48,7 @@ private:
     QPointF computeCycloid(float t);
     QPointF computeHuygens(float t);
     QPointF computeHypo(float t);
-    QPointF computeFutureCurve(float t);
+    QPointF computeLine(float t);
 
 private:
     QColor mBackgroundColor;

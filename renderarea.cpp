@@ -99,7 +99,10 @@ void RenderArea::onShapeChanged()
         mIntervalLength = M_PI * 2;
         mStepCount = 256;
         break;
-    case FutureCurve:
+    case Line:
+        mScale = 100;
+        mIntervalLength = 1;
+        mStepCount = 128;
         break;
     default:
         break;
@@ -117,9 +120,8 @@ QPointF RenderArea::compute(float t)
         return computeHuygens(t);
     case HypoCycloid:
         return computeHypo(t);
-
-    case FutureCurve:
-        return computeFutureCurve(t);
+    case Line:
+        return computeLine(t);
     default:
         return QPointF();
     }
@@ -158,7 +160,10 @@ QPointF RenderArea::computeHypo(float t)
     );
 }
 
-QPointF RenderArea::computeFutureCurve(float t)
+QPointF RenderArea::computeLine(float t)
 {
-    return QPointF();
+    return QPointF(
+        1-t,
+        1-t
+    );
 }
