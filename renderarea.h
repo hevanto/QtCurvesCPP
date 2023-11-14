@@ -11,7 +11,8 @@ public:
         Astroid,
         Cycloid,
         HuygensCycloid,
-        HypoCycloid
+        HypoCycloid,
+        FutureCurve
     };
 
 
@@ -40,12 +41,24 @@ protected:
     void paintEvent(QPaintEvent *event);
 
 private:
-    QPointF computeAsteroid(float t);
+    void onShapeChanged();
+
+    QPointF compute(float t);
+    QPointF computeAstroid(float t);
+    QPointF computeCycloid(float t);
+    QPointF computeHuygens(float t);
+    QPointF computeHypo(float t);
+    QPointF computeFutureCurve(float t);
 
 private:
     QColor mBackgroundColor;
     QColor mShapeColor;
     ShapeType mShape;
+
+    float mIntervalLength;
+    float mScale;
+    int mStepCount;
+
 };
 
 #endif // RENDERAREA_H
